@@ -1,0 +1,23 @@
+#octopus-wrapper {
+	position: relative;
+	margin-left: 50%;
+	margin-right: 50%;
+}
+
+#octopus {
+	position: absolute;
+	padding-top: 50px;
+}
+
+#hat {
+	position: absolute;
+	margin-left: -25px;
+	z-index: 2;
+}
+
+#glasses {
+	position: absolute;
+	z-index: 1;
+	margin-top: 150px;
+	margin-left: 40px;
+}
