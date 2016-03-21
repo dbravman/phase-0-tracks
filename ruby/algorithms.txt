@@ -1,0 +1,17 @@
+Elevator Instructions:
+Compare current floor to target floor.
+	If current floor is higher, press down button.
+	If current floor is lower, press up button.
+Wait for elevator doors to open.
+	Compare elevator's direction to direction to target floor.
+	If directions do not match, wait for doors to close.  
+		Continue to wait for elevator doors to open.
+	If directions do match, board elevator.
+Start at the top left button.  
+	If the number matches the number for target floor, press it.
+		Otherwise, consider the button to the right.  If there is no button to the right, consider the button at the far left, one row down.
+			Continue to examine buttons in this manner until the button matching the target floor has been pressed.
+Wait for doors to open.
+	Compare current floor to target floor.
+		If current floor is the same as target floor, exit elevator.
+		If current floor is not the same as target floor, wait for doors to close.  Continue to wait for doors to open.
