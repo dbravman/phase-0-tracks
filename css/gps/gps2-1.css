@@ -1,3 +1,25 @@
-body {
-	color: orange;
+.column-1 {
+  float: left;
+  background-color: blue;
+  width: 45%;
+  padding: 10px;
+  margin: 15px;
+  margin-bottom: 45px;
+  font-family: helvetica;
+}
+
+.column-2 {
+  float: left;
+  background-color: green;
+  width: 45%;
+  padding: 10px;
+  margin: 15px;
+  margin-bottom: 45px;
+}
+
+footer {
+  background-color: orange;
+  display: inline;
+  align-text: center;
+  width: 100%;
 }
