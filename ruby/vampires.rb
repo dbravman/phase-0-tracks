@@ -1,5 +1,5 @@
 # Convert a Y/N prompt into boolean T/F
-def YNConvert input 
+def convertYNToTF input 
 	return case input
 		when "y", "Y" then true
 		when "n", "N" then false
@@ -8,7 +8,7 @@ def YNConvert input
 end
 
 # Check whether an age matches the birthyear.
-# Because birthday might not have happened yet in the current year, considering a range of ages.
+# Because birthday might not have happened yet in the current year, a range of ages is considered.
 def checkAge birthyear, age
 	return (age..age+1) === (Time.new.year - birthyear) 
 end
@@ -27,43 +27,44 @@ employeeNumber.times do
 	puts "What year were you born?"
 	year = gets.chomp.to_i
 	puts "Our company cafeteria serves garlic bread.  Should we order some for you? (Y/N)"
-	garlicbread = YNConvert gets.chomp
+	garlicbread = convertYNToTF gets.chomp
 	puts "Would you like to enroll in the company's health insurance? (Y/N)"
-	insurance = YNConvert gets.chomp
+	insurance = convertYNToTF gets.chomp
 
-	#release 2
-	ageCorrect = checkAge year, age
-
-	# this seems efficient, but not in the required order 
-	if name == "Drake Cula" || name == "Tu Fang"
-		puts "Definitely a vampire."
-	elsif ageCorrect && (garlicbread ^ insurance)
-		puts "Probably not a vampire."
-	elsif !garlicbread ^ !insurance
-		puts "Probably a vampire."
-	elsif !garlicbread && !insurance
-		puts "Almost certainly a vampire."
-	else 
-		puts "Results inconclusive."
+	# release 4
+	allergy = nil
+	while (allergy != "done" && allergy != "sunshine")
+		puts "Name allerges, one at a time.  Type \"done\" when finished."
+		allergy = gets.chomp
 	end
 
-	# # this seems inefficient, but satisfies "Match the following conditions in the order they're listed"
-	# result = nil
-	# if ageCorrect && (garlicbread ^ insurance)
-	# 	result = "Probably not a vampire."
-	# elsif !ageCorrect && (!garlicbread ^ !insurance)
-	# 	result = "Probably a vampire."
-	# elsif !ageCorrect && (!garlicbread && !insurance)
-	# 	result = "Almost certainly a vampire."
-	# end
+	if allergy == "sunshine"
+		puts "Probably a vampire."
+		next
+	end
 
-	# if name == "Drake Cula" || name == "Tu Fang"
-	# 	result = "Definitely a vampire."
-	# end
+	# release 2
+	ageCorrect = checkAge year, age
 
-	# if result == nil 
-	# 	result = "Results inconclusive."
-	# end
-	# puts result
+	result = nil
+	if ageCorrect && (garlicbread ^ insurance)
+		result = "Probably not a vampire."
+	elsif !ageCorrect && (!garlicbread ^ !insurance)
+		result = "Probably a vampire."
+	elsif !ageCorrect && (!garlicbread && !insurance)
+		result = "Almost certainly a vampire."
+	end
+
+	if name == "Drake Cula" || name == "Tu Fang"
+		result = "Definitely a vampire."
+	end
+
+	if result == nil 
+		result = "Results inconclusive."
+	end
+
+	puts result
 end
 
+# release 5
+puts "Actually, never mind!  What do these questions have to do with anything?  Let's all be friends."
