@@ -1,0 +1,86 @@
+Elevator Algorithm:
+Compare current floor to target floor.
+	If current floor is higher, press down button.
+	If current floor is lower, press up button.
+Wait for elevator doors to open.
+	Compare elevator's direction to direction to target floor.
+	If directions do not match, wait for doors to close.  
+		Continue to wait for elevator doors to open.
+	If directions do match, board elevator.
+Start at the top left button.  
+	If the number matches the number for target floor, press it.
+		Otherwise, consider the button to the right.  If there is no button to the right, consider the button at the far left, one row down.
+			Continue to examine buttons in this manner until the button matching the target floor has been pressed.
+Wait for doors to open.
+	Compare current floor to target floor.
+		If current floor is the same as target floor, exit elevator.
+		If current floor is not the same as target floor, wait for doors to close.  Continue to wait for doors to open.
+
+
+Danny's Laundry Algorithm:
+Sort dirty clothing.
+	Pick up a piece of clothing.
+		If it is a shirt, put in shirt pile.
+		If it is pants, check that pockets are empty.
+			Put in pants pile.
+		Otherwise, put in misc pile.
+Put dirty linen in a linen pile.
+Put each pile into a basket.
+Take baskets.
+For each pile, take 14 quarters.
+Take detergent.
+Go to laundry room.
+For each pile:
+	Go to first washer.
+	Verify washer is empty.
+		If washer is not empty, go to next washer to verify.
+		If no washers are empty, wait for someone to empty.
+	Measure 1/2 cap of detergent.
+	Open washer.
+	Pour detergent into empty washer.
+	Place each item from the basket into washer.
+	Close washer.
+	Select mode:
+		If shirts, use mode energy saving cold.
+		If pants, use mode energy saving warm.
+		If misc, use mode energy saving hot.
+		If linen, use mode energy saving cold.
+	Fill each coin slot with a quarter.
+	Slide coin tray.  (Washer starts automatically)
+When washer stops:
+	Go to first dryer.
+	Verify dryer is empty.
+		If dryer is not empty, go to next dryer to verify.
+		If no dryers are empty, wait for someone to empty.
+	Open dryer.
+	Empty lint tray.
+	Place each wet item from the washer into dryer.
+	Close dryer.
+	Select mode:
+		If shirts, use mode permenant press.
+		If pants, use mode normal.
+		If misc, use mode normal.
+		If linen, use mode delicate.
+	Fill each coin slot with a quarter.
+	Slide coin tray.
+	Press start.
+When dryer stops:
+	Open dryer.
+	Empty lint tray to be nice for the next user.
+	Place each dry item from the dryer into basket.
+	Close dryer.
+When all dryers have stopped:
+	Take baskets.
+	Go to bedroom.
+	For each item in shirt pile:
+		If button-down, put on hanger.
+		Otherwise, fold and put in shirt drawer.
+	For each item in pants pile:
+		Fold and put in pants drawer.
+	For each item in misc pile:
+		If towel: put in bathroom closet.
+		If sock: find a matching sock in pile.  Knot socks together and put in sock drawer. 
+		If underwear: fold and put in underwear drawer
+		If nightwear: fold and put in underwear drawer.
+	For each item in linen pile:
+		Fold and put in linen closet.
