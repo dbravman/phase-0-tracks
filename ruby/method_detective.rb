@@ -5,18 +5,18 @@
 # committed the crime, add additional calls to prove it.
 
 "iNvEsTiGaTiOn".swapcase
-# => "InVeStIgAtIoN"
+# => “InVeStIgAtIoN”
 
 "zom".insert(1, "o")
 "zom".insert(2, "o")
 "zom".sub("o", "oo")
-# => "zoom"
+# => “zoom”
 
 "enhance".center(15)
-#=> "    enhance    "
+# => "    enhance    "
 
 "Stop! You're under arrest!".upcase
-# => "STOP! YOU'RE UNDER ARREST!"
+# => "STOP! YOU’RE UNDER ARREST!"
 
 "the usual".concat(" suspects")
 "the usual".insert(9, " suspects")
@@ -24,7 +24,7 @@
 
 " suspects".insert(0, "the usual")
 " suspects".prepend("the usual")
-#=> "the usual suspects"
+# => "the usual suspects"
 
 "The case of the disappearing last letter".chomp("r")
 "The case of the disappearing last letter".chop
@@ -33,7 +33,7 @@
 "The mystery of the missing first letter".delete("T")
 # => "he mystery of the missing first letter"
 
-#"Elementary  ,    my   dear      Watson!".<???>
+"Elementary,    my   dear        Watson!".squeeze(" ")
 # => "Elementary, my dear Watson!"
 
 "z".getbyte(0)
@@ -42,4 +42,4 @@
 # (What is the significance of the number 122 in relation to the character z?)
 
 "How many times does the letter 'a' appear in this string?".count("a")
-#=> 4
+# => 4
