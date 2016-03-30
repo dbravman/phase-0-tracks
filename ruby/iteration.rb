@@ -55,3 +55,9 @@ p hash2.drop_while {|k,v| v < 3}
 # A method that will remove items from a data structure until the condition in the block evaluates to true, then stops.
 p array2.reject {|i| i <= 3}
 p hash2.reject! { |k,v| v <= 3}
+
+
+# 1 2 3 4 5
+# F F T F F 
+# r r stop
+# [3, 4, 5]
