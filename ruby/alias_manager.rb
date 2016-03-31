@@ -1,11 +1,13 @@
 def build_alias_name(name)
 # swap first and last names
 	alias_name = swap_names(name)
-# change each vowel to next vowel and each consonant to next consonant. spaces and punctuation do not change
+# separate name into characters
 	alias_name = alias_name.chars
+# change each vowel to next vowel and each consonant to next consonant. spaces and punctuation do not change
 	alias_name.map! do |letter| 
 		next_letter(letter)
 	end
+# rejoin next letters
 	alias_name.join
 end
 
@@ -37,7 +39,7 @@ def next_letter(letter)
 	else
 # if is a consonant or vowel, increase index of the codekey
 		index = codekey.index(letter) + 1
-# 		check exception if at the end (u/U or z/Z)
+# 		check exception if at the end of the codekey (u/U or z/Z)
 		if index == codekey.length
 			index = 0
 		end
