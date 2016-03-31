@@ -49,15 +49,9 @@ p hash2.select {|k, v| v <= 3}
 p hash2.select {|k, v| k == :b}
 
 #A different method that filters a data structure for only items satisfying a certain condition -- Ruby offers several options!
-p array2.drop_while {|i| i < 3}
-p hash2.drop_while {|k,v| v < 3}
+p array2.keep_if {|i| i >= 2}
+p hash2.keep_if {|k,v| v >= 2}
 
 # A method that will remove items from a data structure until the condition in the block evaluates to true, then stops.
-p array2.reject {|i| i <= 3}
-p hash2.reject! { |k,v| v <= 3}
-
-
-# 1 2 3 4 5
-# F F T F F 
-# r r stop
-# [3, 4, 5]
+p array2.drop_while {|i| i != 3}
+p hash2.drop_while {|k,v| v != 3}
