@@ -71,3 +71,17 @@ list = add_or_update_item(list, 'ice cream', 4)
 list = remove_item(list, "lemonade")
 list = add_or_update_item(list, "ice cream", 1)
 pretty_print(list)
+
+# Reflection
+# •What did you learn about pseudocode from working on this challenge?
+#I learned when to do it: after planning and before coding.  
+# •What are the tradeoffs of using arrays and hashes for this challenge?
+# A hash is better to use here, so that quantities can be matched to items.  Also, the index of an array isn't necessary because order doesn't matter. 
+# •What does a method return?
+#Either the last line (implicit) or something explicitly labeled as a return value. 
+# •What kind of things can you pass into methods as arguments?
+# Objects or default values.
+# •How can you pass information between methods?
+#Using inputs and outputs
+# •What concepts were solidified in this challenge, and what concepts are still confusing?
+#I solidified some hash techniques, including default values in hashes.  I'm still struggling conceptually with pseudocoding.  It is hard not to jumping straight to coding.  But I appreciated the value of planning out data structures and methods.
