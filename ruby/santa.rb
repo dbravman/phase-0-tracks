@@ -1,6 +1,6 @@
 class Santa
 	attr_reader :gender, :ethnicity
-	attr_accessor :age
+	attr_accessor :age, :reindeer_ranking
 
 	def speak
 		puts "Ho, ho, ho!  Haaaappy holidays!"
@@ -14,7 +14,7 @@ class Santa
 		puts "Initializing Santa instance..."
 		@gender = gender
 		@ethnicity = ethnicity
-		@reindeer_ranking = [:Rudolph, :Dasher, :Dancer, :Prancer, :Vixen, :Comet, :Cupid, :Donner, :Blitzen]
+		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
 		@age = 0
 	end
 
@@ -50,10 +50,27 @@ end
 # santas << Santa.new("female", "asian")
 # p santas
 
-# release2/3 driver code
-santa = Santa.new("male", "white")
-p santa
-santa.celebrate_birthday
-santa.get_mad_at(:Rudolph)
-santa.get_mad_at(:Vixen)
-p santa
+# # release2/3 driver code
+# santa = Santa.new("male", "white")
+# p santa
+# santa.celebrate_birthday
+# santa.get_mad_at("Rudolph")
+# santa.get_mad_at("Vixen")
+# p santa
+
+# release 4 driver code
+example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+
+100.times do 
+	#Use our array of example genders and an array of example ethnicities [...] to create your Santas with a randomly selected gender and a randomly selected ethnicity.
+	ethnicity = example_ethnicities.sample
+	gender = example_genders.sample
+	santa = Santa.new(gender, ethnicity)
+	
+	#Set your new Santa's age to a random number between 0 and 140.
+	santa.age = rand(141)
+	
+	#No need to store your Santas in a data structure, but your program should print out the attributes of each Santa using the instance methods that give you access to that data.
+	puts "Santa is a #{santa.age}-year old #{santa.ethnicity} #{santa.gender}, who prefers the reindeer in this order: #{santa.reindeer_ranking}."
+end
