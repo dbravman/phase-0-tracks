@@ -14,4 +14,8 @@ class TodoList
 	def delete_item(old_item)
 		@list.delete(old_item)
 	end
+
+	def get_item(index)
+		@list[index]
+	end
 end
