@@ -1,16 +1,15 @@
 /*This looks nicer, but not per spec of 2 columns*/
 
-
 section {
   margin: 5px;
   padding: 5px;
   display: flex;
   background-color: blue;
+  float: left;
 }
 
 article {
   margin: 5px;
-  flex: 1;
   background-color: red;
 }
 
