@@ -1,9 +1,60 @@
-/*test that it works*/
-p {
-  border: red 1px solid;
+/*This looks nicer, but not per spec of 2 columns*/
+
+
+section {
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  background-color: blue;
+}
+
+article {
+  margin: 5px;
+  flex: 1;
+  background-color: red;
+}
+
+h2 {
+  text-align: center;
+}
+
+details, p {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+header, footer {
+  width: 50%;
+  margin: auto;
+  background-color : orange;
+  text-align: center;
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*old code*/
 /*body:not(header)  {
 	display: flex;
 }
