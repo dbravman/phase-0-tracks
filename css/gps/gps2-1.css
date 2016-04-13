@@ -1,3 +1,69 @@
+/*This looks nicer, but not per spec of 2 columns*/
+
+section {
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  background-color: blue;
+  float: left;
+}
+
+article {
+  margin: 5px;
+  background-color: red;
+}
+
+h2 {
+  text-align: center;
+}
+
+details, p {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+header, footer {
+  width: 50%;
+  margin: auto;
+  background-color : orange;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*old code*/
+/*body:not(header)  {
+	display: flex;
+}
+
+.column-1, .column-2 {  
+  flex: 1;   
+  padding: 1em;
+  border: solid;
+}
+
 .column-1 {
   float: left;
   background-color: blue;
@@ -19,7 +85,8 @@
 
 footer {
   background-color: orange;
-  display: inline;
-  align-text: center;
-  width: 100%;
-}
+  clear: both;
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
+}*/
