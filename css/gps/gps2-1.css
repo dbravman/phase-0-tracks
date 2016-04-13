@@ -1,3 +1,13 @@
+/*body:not(header)  {
+	display: flex;
+}
+
+.column-1, .column-2 {  
+  flex: 1;   
+  padding: 1em;
+  border: solid;
+}
+
 .column-1 {
   float: left;
   background-color: blue;
@@ -19,7 +29,8 @@
 
 footer {
   background-color: orange;
-  display: inline;
-  align-text: center;
-  width: 100%;
-}
+  clear: both;
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
+}*/
