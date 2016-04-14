@@ -44,10 +44,35 @@ function longestLength(array) {
 	return currentLongest.length;
 }
 
-//driver code
-//release0
-var array1 = ["long phrase","longest phrase","longer phrase"];
-var array2 = ["long phrase","longest phrase 1","longer phrase","longest phrase 2"];
-console.log(longestString(array1));
-console.log(longestString(array2));
+//release1
+// input: 2 objects
+// output: boolean of whether there is at least 1 matching key-value.
+function matchingPair(object1, object2) {
+	//iterate through keys of first object
+	for (var key in object1) {
+		//IF the value for that key in the first object equals the value in the second object 
+		if (object1[key] == object2[key]) {
+			//THEN RETURN TRUE
+			return true;
+		// ELSE keep iterating
+		}
+	}
+	// when done iterating, since no match will have been found, RETURN FALSE	
+	return false;
+}
 
+
+//driver code
+
+// //release0
+// var array1 = ["long phrase","longest phrase","longer phrase"];
+// var array2 = ["long phrase","longest phrase 1","longer phrase","longest phrase 2"];
+// console.log(longestString(array1));
+// console.log(longestString(array2));
+
+// release1
+object1 = {name: "Steven", age: 54};
+object2 = {name: "Tamir", age: 54};
+object3 = {};
+console.log(matchingPair(object1, object2)); 
+console.log(matchingPair(object1, object3)); 
