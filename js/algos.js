@@ -1,8 +1,8 @@
 // release0
 // input: an array of strings
 // output: a string of the longest word in the array
-	// What if there is a tie?  Assume that it should return all
-function longestString(array) {
+	// NOTE for reviewer: I assumed that if there is a tie, that the function should return an array with all the tied strings.
+function findLongestString(array) {
 	// find the longest length
 	var maxLength = longestLength(array);
 	// start with an empty output array
@@ -47,7 +47,7 @@ function longestLength(array) {
 //release1
 // input: 2 objects
 // output: boolean of whether there is at least 1 matching key-value.
-function matchingPair(object1, object2) {
+function findKeyValueMatch(object1, object2) {
 	//iterate through keys of first object
 	for (var key in object1) {
 		//IF the value for that key in the first object equals the value in the second object 
@@ -84,6 +84,7 @@ function generateRandomTestData(integer) {
 	return array;
 }
 
+//NOTE for reviewer: I looked up this randomNumberBetween function online.  The instructions implied that I should even though it's a solo challenge.
 //input: integer min and integer max
 //output: random number between min and max
 function randomNumberBetween(min, max) {
@@ -91,6 +92,7 @@ function randomNumberBetween(min, max) {
 	return Math.round(decimal); 
 }
 
+//input: nil
 //output: random letter
 function randomLetter() {
 	var letters = "abcdefghijklmnopqrstuvwxyz";
@@ -103,19 +105,19 @@ function randomLetter() {
 //release0
 var array1 = ["long phrase","longest phrase","longer phrase"];
 var array2 = ["long phrase","longest phrase 1","longer phrase","longest phrase 2"];
-console.log(longestString(array1));
-console.log(longestString(array2));
+console.log(findLongestString(array1));
+console.log(findLongestString(array2));
 
 // release1
 object1 = {name: "Steven", age: 54};
 object2 = {name: "Tamir", age: 54};
 object3 = {};
-console.log(matchingPair(object1, object2)); 
-console.log(matchingPair(object1, object3)); 
+console.log(findKeyValueMatch(object1, object2)); 
+console.log(findKeyValueMatch(object1, object3)); 
 
 //release2
 for (var i = 1; i <= 10; i++) {
 	var testData = generateRandomTestData(i);
 	console.log(testData);
-	console.log(longestString(testData));
+	console.log(findLongestString(testData));
 }
