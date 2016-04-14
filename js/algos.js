@@ -2,16 +2,16 @@
 // input: an array of strings
 // output: a string of the longest word in the array
 	// What if there is a tie?  Assume that it should return all
-function longestWord(array) {
+function longestString(array) {
 	// find the longest length
-	var longestLength = longestLength(array);
+	var maxLength = longestLength(array);
 	// start with an empty output array
 	answers = [];
 	// iterate over the input
-	for (string in array) {
+	for (var i = 0; i < array.length; i++) {
 		// push all strings with the longest length to the output array
-		if (string.length == longestLength) {
-			answers.push(string);
+		if (array[i].length == maxLength) {
+			answers.push(array[i]);
 		}
 	}
 
@@ -20,11 +20,10 @@ function longestWord(array) {
 		// THEN RETURN it
 		return answers[0];
 	// ELSE
-	else
+	} else {
 		// RETURN the whole array
 		return answers;
 	}
-
 }
 
 // input: an array of strings
@@ -33,14 +32,18 @@ function longestLength(array) {
 // start with an empty current longest
 	var currentLongest = "";
 	// iterate over the array
-	for (string in array) {
+	for (var i = 0; i < array.length; i++) {
 		// IF the string is longer than current longest
-		if (string.length > currentLongest.length) {
+		if (array[i].length > currentLongest.length) {
 			// THEN it becomes the current_longest 
-			currentLongest = string;
+			currentLongest = array[i];
 		}
 	}
 
 	// RETURN the length of the current longest
 	return currentLongest.length;
 }
+
+//driver code
+var array1 = ["long phrase","longest phrase","longer phrase"];
+console.log(longestString(array1));
