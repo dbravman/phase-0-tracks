@@ -61,14 +61,50 @@ function matchingPair(object1, object2) {
 	return false;
 }
 
+//release2
+//input: integer n
+//output: array of n strings 
+function generateRandomTestData(integer) {
+	//create empty output array
+	var array = [];
+	//iterate n times
+	for (var i = 0; i < integer; i++) {
+		//create empty string
+		var string = "";	
+		var randomLength = randomNumberBetween(1,10);
+		//iterate a random number 1-10 times
+		for (var i = 0; i < randomLength; i++) {
+			//add a random letter to the string
+			string += randomLetter();
+		}
+		//push string to array
+		array.push(string);
+	}
+	//RETURN array
+	return array;
+}
+
+//input: integer min and integer max
+//output: random number between min and max
+function randomNumberBetween(min, max) {
+	var decimal = Math.random() * (max - min) + min;
+	return Math.round(decimal); 
+}
+
+//output: random letter
+function randomLetter() {
+	var letters = "abcdefghijklmnopqrstuvwxyz";
+	return letters[randomNumberBetween(0,25)];
+}
+
 
 //driver code
 
-// //release0
-// var array1 = ["long phrase","longest phrase","longer phrase"];
-// var array2 = ["long phrase","longest phrase 1","longer phrase","longest phrase 2"];
-// console.log(longestString(array1));
-// console.log(longestString(array2));
+//release0
+var array1 = ["long phrase","longest phrase","longer phrase"];
+var array2 = ["long phrase","longest phrase 1","longer phrase","longest phrase 2"];
+console.log(longestString(array1));
+console.log(longestString(array2));
 
 // release1
 object1 = {name: "Steven", age: 54};
@@ -76,3 +112,10 @@ object2 = {name: "Tamir", age: 54};
 object3 = {};
 console.log(matchingPair(object1, object2)); 
 console.log(matchingPair(object1, object3)); 
+
+//release2
+for (var i = 1; i <= 10; i++) {
+	var testData = generateRandomTestData(i);
+	console.log(testData);
+	console.log(longestString(testData));
+}
