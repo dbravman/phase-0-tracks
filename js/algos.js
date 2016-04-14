@@ -45,5 +45,9 @@ function longestLength(array) {
 }
 
 //driver code
+//release0
 var array1 = ["long phrase","longest phrase","longer phrase"];
+var array2 = ["long phrase","longest phrase 1","longer phrase","longest phrase 2"];
 console.log(longestString(array1));
+console.log(longestString(array2));
+
