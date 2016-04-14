@@ -26,9 +26,8 @@ function Car(speed, color, volumeOfHorn) {
 		}
 	}
 
-	console.log("Our car is " + this.speed + " mph fast.  It is " + this.color + "and the horn sounds like this: " + this.honk);
+	console.log("Our car is " + this.speed + " mph fast.  It is " + this.color + " and the horn sounds like this: ");
+	this.honk();
 }
 
-var newCar = new Car(55, "blue", 8);
-console.log(newCar);
-console.log(newCar.honk);
+var newCar = new Car(55, "blue", 11);
