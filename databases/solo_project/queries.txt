@@ -1,0 +1,103 @@
+Release 2
+1.Display the information in one table (either table is fine).
+	SELECT * FROM students;
+		id|name|alive|year_rel_harry|house_id
+		1|Harry Potter|true|0|1
+		2|Ron Weasley|true|0|1
+		3|Hermione Granger|true|0|1
+		4|Draco Malfoy|true|0|2
+		5|Cho Chang|true|1|3
+		6|Cedric Diggory|false|3|4
+		7|Ginny Weasley|true|-1|1
+		8|Fred Weasley|false|2|1
+		9|George Weasley|true|2|1
+		10|Gregory Goyle|true|0|2
+		11|Vincent Crabbe|false|0|2
+
+2.Update an item that meets some condition (you can choose a condition that makes sense).
+	UPDATE students SET name="Ginny Potter" WHERE name="Ginny Weasley";
+
+3.Display the information in both tables using one query.
+	SELECT * FROM students, houses WHERE students.house_id = houses.id;
+		id|name|alive|year_rel_harry|house_id|id|name|ghost|founder|head
+		1|Harry Potter|true|0|1|1|Gryffindor|Nearly Headless Nick|Godric Gryffindor|Minerva McGonagall
+		2|Ron Weasley|true|0|1|1|Gryffindor|Nearly Headless Nick|Godric Gryffindor|Minerva McGonagall
+		3|Hermione Granger|true|0|1|1|Gryffindor|Nearly Headless Nick|Godric Gryffindor|Minerva McGonagall
+		4|Draco Malfoy|true|0|2|2|Slytherin|The Bloody Baron|Salazar Slytherin|Severus Snape
+		5|Cho Chang|true|1|3|3|Ravenclaw|The Grey Lady|Rowena Ravenclaw|Filius Flitwick
+		6|Cedric Diggory|false|3|4|4|Hufflepuff|The Fat Friar|Helga Hufflepuff|Pomona Sprout
+		7|Ginny Potter|true|-1|1|1|Gryffindor|Nearly Headless Nick|Godric Gryffindor|Minerva McGonagall
+		8|Fred Weasley|false|2|1|1|Gryffindor|Nearly Headless Nick|Godric Gryffindor|Minerva McGonagall
+		9|George Weasley|true|2|1|1|Gryffindor|Nearly Headless Nick|Godric Gryffindor|Minerva McGonagall
+		10|Gregory Goyle|true|0|2|2|Slytherin|The Bloody Baron|Salazar Slytherin|Severus Snape
+		11|Vincent Crabbe|false|0|2|2|Slytherin|The Bloody Baron|Salazar Slytherin|Severus Snape
+
+4.Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+	SELECT students.name, students.alive, students.year_rel_harry, houses.name FROM students JOIN houses ON students.house_id = houses.id;
+		name|alive|year_rel_harry|name
+		Harry Potter|true|0|Gryffindor
+		Ron Weasley|true|0|Gryffindor
+		Hermione Granger|true|0|Gryffindor
+		Draco Malfoy|true|0|Slytherin
+		Cho Chang|true|1|Ravenclaw
+		Cedric Diggory|false|3|Hufflepuff
+		Ginny Potter|true|-1|Gryffindor
+		Fred Weasley|false|2|Gryffindor
+		George Weasley|true|2|Gryffindor
+		Gregory Goyle|true|0|Slytherin
+		Vincent Crabbe|false|0|Slytherin
+
+5.Delete an item that meets some condition (you can choose a condition that makes sense).
+	DELETE FROM students WHERE alive="false";
+
+
+Release 3
+2.Try a few different joins in your database, and record the commands and the output in queries.txt.
+	SELECT students.name, houses.name FROM students CROSS JOIN houses;
+		name|name
+		Harry Potter|Gryffindor
+		Harry Potter|Slytherin
+		Harry Potter|Ravenclaw
+		Harry Potter|Hufflepuff
+		Ron Weasley|Gryffindor
+		Ron Weasley|Slytherin
+		Ron Weasley|Ravenclaw
+		Ron Weasley|Hufflepuff
+		Hermione Granger|Gryffindor
+		Hermione Granger|Slytherin
+		Hermione Granger|Ravenclaw
+		Hermione Granger|Hufflepuff
+		Draco Malfoy|Gryffindor
+		Draco Malfoy|Slytherin
+		Draco Malfoy|Ravenclaw
+		Draco Malfoy|Hufflepuff
+		Cho Chang|Gryffindor
+		Cho Chang|Slytherin
+		Cho Chang|Ravenclaw
+		Cho Chang|Hufflepuff
+		Ginny Potter|Gryffindor
+		Ginny Potter|Slytherin
+		Ginny Potter|Ravenclaw
+		Ginny Potter|Hufflepuff
+		George Weasley|Gryffindor
+		George Weasley|Slytherin
+		George Weasley|Ravenclaw
+		George Weasley|Hufflepuff
+		Gregory Goyle|Gryffindor
+		Gregory Goyle|Slytherin
+		Gregory Goyle|Ravenclaw
+		Gregory Goyle|Hufflepuff
+
+	SELECT students.name, students.alive, students.year_rel_harry, houses.name FROM students LEFT OUTER JOIN houses ON students.house_id = houses.id;
+		name|alive|year_rel_harry|name
+		Harry Potter|true|0|Gryffindor
+		Ron Weasley|true|0|Gryffindor
+		Hermione Granger|true|0|Gryffindor
+		Draco Malfoy|true|0|Slytherin
+		Cho Chang|true|1|Ravenclaw
+		Ginny Potter|true|-1|Gryffindor
+		George Weasley|true|2|Gryffindor
+		Gregory Goyle|true|0|Slytherin
+
+	SELECT students.name, houses.name FROM students NATURAL JOIN houses;
+		[No output.  houses.id should have been houses.house_id.  Now I know for next time!]
