@@ -48,11 +48,11 @@ def create_tables(db)
 	create_rsvps_table_cmd = <<-SQL
 		CREATE TABLE IF NOT EXISTS rsvps(
 			rsvp_id INTEGER PRIMARY KEY,
-			attending BOOLEAN,
+			attending VARCHAR(255),
 			person_id INT,
 			event_id INT,
-			FOREIGN KEY(person_id) REFERENCES people.person_id,
-			FOREIGN KEY(event_id) REFERENCES events.person_id,
+			FOREIGN KEY(person_id) REFERENCES people(person_id),
+			FOREIGN KEY(event_id) REFERENCES events(event_id)
 		)
 	SQL
 
@@ -63,3 +63,5 @@ end
 
 #driver code
 create_tables(db)
+
+
