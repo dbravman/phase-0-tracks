@@ -90,6 +90,25 @@ def add_rsvp(db, attending, person_id, event_id)
 	db.execute("INSERT INTO rsvps (attending, person_id, event_id) VALUES (?, ?, ?)", [attending, person_id, event_id])
 end
 
+def display_rsvps(db, people, event_id)
+	people.each do |person|
+		attending = case person["attending"]
+		when "true" then "attending"
+		when "false" then "not attending"
+		end
+
+	puts "#{person["person_id"]}: #{person["first_name"]} #{person["last_name"]} (#{attending})"
+	end
+end
+
+def display_person(db, person)
+	attending = case person["attending"]
+	when "true" then "attending"
+	when "false" then "not attending"
+	end
+
+	puts "#{person["person_id"]}: #{person["first_name"]} #{person["last_name"]} (#{attending})"
+end
 
 #driver code
 puts "Create new tables with fake data? (y/n)"
@@ -108,5 +127,43 @@ if restart == "y"
 	rsvps = db.execute("SELECT * FROM rsvps")
 end
 
+mode = nil
+until mode == "q" 
+	puts "([d]isplay, [u]pdate, or [q]uit?)"
+	mode = gets.chomp
+	if mode == "d"
+		puts "Choose an event by number:"
+		events = db.execute("SELECT * FROM events")
+		events.each do |event|
+			puts "#{event["event_id"]}: #{event["date"]} #{event["time"]}, #{event["event"]}"
+		end
+		event_id = gets.chomp
 
-	
+		people = db.execute("SELECT * FROM rsvps NATURAL JOIN people WHERE event_id = ?", [event_id])
+		display_rsvps(db, people, event_id)
+	elsif mode == "u"
+		puts "Choose an event by number:"
+		events = db.execute("SELECT * FROM events")
+		events.each do |event|
+			puts "#{event["event_id"]}: #{event["date"]} #{event["time"]}, #{event["event"]}"
+		end
+		event_id = gets.chomp
+
+		puts "Choose a person by number:"
+		
+		people = db.execute("SELECT * FROM rsvps NATURAL JOIN people WHERE event_id = ?", [event_id])
+		display_rsvps(db, people, event_id)
+		person_id = gets.chomp
+
+		new_attending = case people[person_id.to_i - 1]["attending"]
+		when "true" then "false"
+		when "false" then "true"
+		end
+
+		db.execute("UPDATE rsvps SET attending = ? WHERE person_id = ? AND event_id = ?", [new_attending, person_id, event_id]) 
+
+		updated_person = db.execute("SELECT * FROM rsvps NATURAL JOIN people WHERE person_id = ? AND event_id = ?", [person_id, event_id]).first
+		
+		display_person(db, updated_person)
+	end
+end
