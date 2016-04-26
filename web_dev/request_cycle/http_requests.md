@@ -36,3 +36,4 @@
  * POST requests have no restrictions on data length
 
 ###Optional bonus question: What is a cookie (the technical kind, not the delicious kind)? How does it relate to HTTP requests?
+A cookie is a small piece of data stored in a web browser that can record information and then send it back to the website.
