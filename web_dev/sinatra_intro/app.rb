@@ -66,11 +66,17 @@ get "/:addend1/:addend2" do
 	params[:addend1] + " + " + params[:addend2] + " = " + sum.to_s
 end
 
-#4. Optional bonus: Make a route that allows the user to search the database in some way -- maybe for students who have a certain first name, or some other attribute. If you like, you can simply modify the homesho page to take a query parameter, and filter the students displayed if a query parameter is present.
-# get "/search" do
-# 	query = nil
-# 	if params[:id] != nil 
-# 		query = db.execute("SELECT * FROM students WHERE id=?" [params[:id]])
-# 	end
-# 	query[0]
+#4. Optional bonus: Make a route that allows the user to search the database in some way -- maybe for students who have a certain first name, or some other attribute. If you like, you can simply modify the home page to take a query parameter, and filter the students displayed if a query parameter is present.
+get "/search" do
+	string = "<h3>" + params[:campus] + " students:</h3>"
+	query = db.execute("SELECT * FROM students WHERE campus=?", [params[:campus]])
+	query.each do |student|
+		string += student["name"] + "<br>"
+	end
+	string
+end
+
+
+# get '/' do
+#   "#{params[:name]} is #{params[:age]} years old."
 # end
