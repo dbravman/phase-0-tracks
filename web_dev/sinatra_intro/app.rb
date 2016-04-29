@@ -79,8 +79,3 @@ get "/search" do
 		""
 	end
 end
-
-
-# get '/' do
-#   "#{params[:name]} is #{params[:age]} years old."
-# end
